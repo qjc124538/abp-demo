@@ -1,0 +1,9 @@
+Qjc.AbpDemo.Application/bin/
+Qjc.AbpDemo.Application/obj/
+Qjc.AbpDemo.Application.Contracts/bin/
+Qjc.AbpDemo.Application.Contracts/obj/
+Qjc.AbpDemo.DbMigrator/bin/
+Qjc.AbpDemo.DbMigrator/obj/
+Qjc.AbpDemo.Web/bin/
+Qjc.AbpDemo.Web/obj/
+.vs/
