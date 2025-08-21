@@ -33,26 +33,10 @@ namespace Qjc.AbpDemo.Application.Migrations
                         .HasColumnType("NVARCHAR2(40)")
                         .HasColumnName("ConcurrencyStamp");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TIMESTAMP")
-                        .HasColumnName("CreationTime");
-
-                    b.Property<Guid?>("CreatorId")
-                        .HasColumnType("CHAR(36)")
-                        .HasColumnName("CreatorId");
-
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(32767)")
                         .HasColumnName("ExtraProperties");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("TIMESTAMP")
-                        .HasColumnName("LastModificationTime");
-
-                    b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("CHAR(36)")
-                        .HasColumnName("LastModifierId");
 
                     b.Property<string>("Name")
                         .IsRequired()
