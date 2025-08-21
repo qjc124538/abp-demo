@@ -31,7 +31,7 @@ namespace Qjc.AbpDemo
             for (int i = 0; i < row; i++)
             {
                 index++;
-                await TestRepository.InsertAsync(new Test { Name = index.ToString() });
+                await TestRepository.InsertAsync(new Test { Name = index.ToString() }, autoSave: true);
             }
         }
     }
