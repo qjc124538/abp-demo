@@ -1,12 +1,12 @@
 # abp-demo
-基于abp-9.2的示例项目
+基于abp-9.2的示例项目 官网: https://abp.io/
 
-使用 efCore code first 模式, 支持切换数据库Dm, SqlServer
+使用 efCore code first 模式, 支持切换数据库SqlServer, Oracle, Dm
 
 # 数据库创建
 efCore code first 支持根据连接字符串自动创建sqlserver数据库
 
-Dm数据库需要提前创建用户并且赋予角色权限
+Oracle/Dm数据库需要提前创建用户并且赋予角色权限
 
 # 数据库连接字符串
 同步在Qjc.AbpDemo.Web/appsettings.json 与 Qjc.AbpDemo.DbMigrator/appsettings.json
