@@ -11,7 +11,7 @@ Oracle/Dm数据库需要提前创建用户并且赋予角色权限
 # 数据库连接字符串
 同步在Qjc.AbpDemo.Web/appsettings.json 与 Qjc.AbpDemo.DbMigrator/appsettings.json
 
-设置“ConnectionStrings.SqlServer”或“ConnectionStrings.Dm”的值(注意不要修改key)
+设置“ConnectionStrings.SqlServer/Oracle/Dm”的值(注意不要修改key)
 
 设置“DataBaseType”的值为“ConnectionStrings”中的key
 
