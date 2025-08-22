@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qjc.AbpDemo;
+using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
 
@@ -17,31 +18,33 @@ namespace Qjc.AbpDemo.Application.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Dm:ValueGenerationStrategy", DmValueGenerationStrategy.IdentityColumn)
+                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.SqlServer)
                 .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Qjc.AbpDemo.Test", b =>
                 {
                     b.Property<Guid>("Id")
-                        .HasColumnType("CHAR(36)");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .IsRequired()
                         .HasMaxLength(40)
-                        .HasColumnType("NVARCHAR2(40)")
+                        .HasColumnType("nvarchar(40)")
                         .HasColumnName("ConcurrencyStamp");
 
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR2(32767)")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("ExtraProperties");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("NVARCHAR2(128)");
+                        .HasColumnType("nvarchar(128)");
 
                     b.HasKey("Id");
 

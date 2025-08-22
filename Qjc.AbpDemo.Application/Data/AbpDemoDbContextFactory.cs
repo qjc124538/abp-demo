@@ -20,6 +20,10 @@ namespace Qjc.AbpDemo.Application.Data
             {
                 builder.UseSqlServer(configuration["ConnectionStrings:SqlServer"]);
             }
+            else if (dataBaseType.Equals("Oracle"))
+            {
+                builder.UseOracle(configuration["ConnectionStrings:Oracle"]);
+            }
             else if (dataBaseType.Equals("Dm"))
             {
                 builder.UseDm(configuration["ConnectionStrings:Dm"]);

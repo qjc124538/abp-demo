@@ -25,6 +25,10 @@ namespace Qjc.AbpDemo.Application
                 {
                     options.ConnectionStrings.Default = configuration["ConnectionStrings:SqlServer"];
                 }
+                else if (dataBaseType.Equals("Oracle"))
+                {
+                    options.ConnectionStrings.Default = configuration["ConnectionStrings:Oracle"];
+                }
                 else if (dataBaseType.Equals("Dm"))
                 {
                     options.ConnectionStrings.Default = configuration["ConnectionStrings:Dm"];
@@ -41,6 +45,13 @@ namespace Qjc.AbpDemo.Application
                     options.Configure(configurationContext =>
                     {
                         configurationContext.UseSqlServer();
+                    });
+                }
+                else if (dataBaseType.Equals("Oracle"))
+                {
+                    options.Configure(configurationContext =>
+                    {
+                        configurationContext.UseOracle();
                     });
                 }
                 else if (dataBaseType.Equals("Dm"))
