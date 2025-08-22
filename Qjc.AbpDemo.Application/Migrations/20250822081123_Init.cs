@@ -15,10 +15,10 @@ namespace Qjc.AbpDemo.Application.Migrations
                 name: "Test",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "CHAR(36)", nullable: false),
-                    Name = table.Column<string>(type: "NVARCHAR2(128)", maxLength: 128, nullable: false),
-                    ExtraProperties = table.Column<string>(type: "NVARCHAR2(32767)", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "NVARCHAR2(40)", maxLength: 40, nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
