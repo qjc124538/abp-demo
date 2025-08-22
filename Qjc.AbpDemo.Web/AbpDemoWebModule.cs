@@ -14,10 +14,10 @@ using Volo.Abp.Swashbuckle;
 namespace Qjc.AbpDemo.Web
 {
     [DependsOn(
+        typeof(AbpDemoApplicationModule),
         typeof(AbpAspNetCoreMvcModule),
         typeof(AbpAutofacModule),
-        typeof(AbpSwashbuckleModule),
-        typeof(AbpDemoApplicationModule)
+        typeof(AbpSwashbuckleModule)
         )]
     public class AbpDemoWebModule: AbpModule
     {
@@ -32,6 +32,7 @@ namespace Qjc.AbpDemo.Web
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var configuration = context.Services.GetConfiguration();
+            var hostEnvironment = context.Services.GetAbpHostEnvironment();
             context.Services.AddAbpSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "QjcAbpDemo API", Version = "v1" });
@@ -45,6 +46,13 @@ namespace Qjc.AbpDemo.Web
                     builder.WithOrigins(configuration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries).Select(o => o.RemovePostFix("/")).ToArray());
                 });
             });
+            if (hostEnvironment.IsDevelopment())
+            {
+                Configure<AbpAntiForgeryOptions>(options =>
+                {
+                    options.TokenCookie.SecurePolicy = CookieSecurePolicy.Always;
+                });
+            }
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
