@@ -2,7 +2,7 @@
 
 基于abp-9.2的示例项目 官网: https://abp.io/
 
-使用 efCore code first 模式, 支持切换数据库SqlServer, Oracle, Dm
+未依赖任何abp应用模块, 以最简洁的方式实现 自动API, swagger, 跨域, efCore code first(支持切换数据库SqlServer, Oracle, Dm)
 
 # 数据库创建
 
