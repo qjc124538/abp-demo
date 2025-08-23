@@ -16,8 +16,8 @@ namespace Qjc.AbpDemo.Web
 {
     [DependsOn(
         typeof(AbpDemoApplicationModule),
-        typeof(AbpAspNetCoreMvcModule),
         typeof(AbpAutofacModule),
+        typeof(AbpAspNetCoreMvcModule),
         typeof(AbpSwashbuckleModule)
         )]
     public class AbpDemoWebModule: AbpModule
