@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Qjc.AbpDemo;
+using Qjc.AbpDemo.Application.Data;
+using Qjc.AbpDemo.DbMigrator;
 using Volo.Abp;
 
 using var application = await AbpApplicationFactory.CreateAsync<AbpDemoDbMigratorModule>(options => 

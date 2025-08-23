@@ -8,13 +8,13 @@ using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Guids;
 
-namespace Qjc.AbpDemo
+namespace Qjc.AbpDemo.Application.Data
 {
     public class AbpDemoDataSeederContributor : IDataSeedContributor, ITransientDependency
     {
-        private readonly IRepository<Test, Guid> TestRepository;
+        private readonly IRepository<Test.Test, Guid> TestRepository;
 
-        public AbpDemoDataSeederContributor(IRepository<Test, Guid> testRepository)
+        public AbpDemoDataSeederContributor(IRepository<Test.Test, Guid> testRepository)
         {
             TestRepository = testRepository;
         }
@@ -23,8 +23,8 @@ namespace Qjc.AbpDemo
         {
             if (await TestRepository.GetCountAsync() <= 0)
             {
-                await TestRepository.InsertAsync(new Test { Name = "1" }, true);
-                await TestRepository.InsertAsync(new Test { Name = "2" }, true);
+                await TestRepository.InsertAsync(new Test.Test { Name = "1" }, true);
+                await TestRepository.InsertAsync(new Test.Test { Name = "2" }, true);
             }
         }
     }

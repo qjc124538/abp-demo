@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Domain.Entities;
 using Volo.Abp.Domain.Entities.Auditing;
 
-namespace Qjc.AbpDemo
+namespace Qjc.AbpDemo.Test
 {
     public class Test: AggregateRoot<Guid>
     {

@@ -8,7 +8,7 @@ using Volo.Abp.Autofac;
 using Volo.Abp.Data;
 using Volo.Abp.Modularity;
 
-namespace Qjc.AbpDemo
+namespace Qjc.AbpDemo.DbMigrator
 {
     [DependsOn(
         typeof(AbpDemoApplicationModule),

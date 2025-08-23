@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-namespace Qjc.AbpDemo
+namespace Qjc.AbpDemo.Test
 {
     public interface ITestService: IApplicationService
     {
