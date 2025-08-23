@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Qjc.AbpDemo.Application.Contracts;
-using Volo.Abp.Application;
+using Qjc.AbpDemo.Application.Data;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;

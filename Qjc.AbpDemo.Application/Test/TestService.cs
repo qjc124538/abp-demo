@@ -12,7 +12,7 @@ using Volo.Abp.Security.Claims;
 using Volo.Abp.Uow;
 using Volo.Abp.Users;
 
-namespace Qjc.AbpDemo
+namespace Qjc.AbpDemo.Test
 {
     public class TestService: ApplicationService, ITestService
     {

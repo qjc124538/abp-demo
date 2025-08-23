@@ -8,12 +8,12 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 
-namespace Qjc.AbpDemo
+namespace Qjc.AbpDemo.Application.Data
 {
     [ConnectionStringName("Default")]
     public class AbpDemoDbContext : AbpDbContext<AbpDemoDbContext>
     {
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<Test.Test> Tests { get; set; }
 
         public AbpDemoDbContext(DbContextOptions<AbpDemoDbContext> options) : base(options)
         {
@@ -22,7 +22,7 @@ namespace Qjc.AbpDemo
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Test>(b =>
+            modelBuilder.Entity<Test.Test>(b =>
             {
                 b.ToTable("Test");
                 b.ConfigureByConvention();
