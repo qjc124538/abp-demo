@@ -9,6 +9,7 @@ using Volo.Abp.Auditing;
 using Volo.Abp.Autofac;
 using Volo.Abp.Data;
 using Volo.Abp.Modularity;
+using Volo.Abp.Security.Claims;
 using Volo.Abp.Swashbuckle;
 
 namespace Qjc.AbpDemo.Web
@@ -33,18 +34,25 @@ namespace Qjc.AbpDemo.Web
         {
             var configuration = context.Services.GetConfiguration();
             var hostEnvironment = context.Services.GetAbpHostEnvironment();
+            context.Services.AddCors(options =>
+            {
+                options.AddPolicy("Default", builder =>
+                {
+                    if (hostEnvironment.IsDevelopment())
+                    {
+                        builder.AllowAnyOrigin();
+                    }
+                    else
+                    {
+                        builder.WithOrigins(configuration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries).Select(o => o.RemovePostFix("/")).ToArray());
+                    }
+                });
+            });
             context.Services.AddAbpSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "QjcAbpDemo API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
-            });
-            context.Services.AddCors(options =>
-            {
-                options.AddPolicy("Default", builder =>
-                {
-                    builder.WithOrigins(configuration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries).Select(o => o.RemovePostFix("/")).ToArray());
-                });
             });
             if (hostEnvironment.IsDevelopment())
             {
@@ -65,12 +73,12 @@ namespace Qjc.AbpDemo.Web
             }
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseCors("Default");
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "QjcAbpDemo API");
             });
-            app.UseCors("Default");
             app.UseConfiguredEndpoints();
         }
     }

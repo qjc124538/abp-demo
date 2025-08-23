@@ -12,5 +12,7 @@ namespace Qjc.AbpDemo
         Task<string> GetList();
 
         Task Excute(int row);
+
+        Task<string> GetCurrentUser();
     }
 }
