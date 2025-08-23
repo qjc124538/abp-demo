@@ -1,7 +1,13 @@
 # abp-demo
 基于abp-9.2的示例项目 官网: https://abp.io/
 
-使用 efCore code first 模式, 支持切换数据库SqlServer, Oracle, Dm
+已实现: 使用 efCore code first 模式, 支持切换数据库SqlServer, Oracle, Dm
+
+待实现: 
+
+  身份模块(基于cookie) https://learn.microsoft.com/zh-cn/aspnet/core/security/authentication/cookie?view=aspnetcore-9.0 
+
+  权限模块(基于策略) https://learn.microsoft.com/zh-cn/aspnet/core/security/authorization/policies?view=aspnetcore-9.0
 
 # 数据库创建
 efCore code first 支持根据连接字符串自动创建sqlserver数据库
